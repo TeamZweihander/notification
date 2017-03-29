@@ -52,12 +52,11 @@
             <id>12163262</id>
             <name>Nsovo Baloyi</name>
             <email>u12163262@tuks.co.za</email>
-            <url>https://www.andrewbroekman.com/</url>
             <roles>
-                <role>Zweihander Notification Leader</role>
+                <role>Zweihander Notification Member</role>
                 <role>Developer</role>
             </roles>
-            <timezone>Africa/Johannesburg</timezone>
+            <timezone>Africa/Pretoria</timezone>
         </developer>
        <developer>
             <id>29461775</id>
@@ -67,7 +66,17 @@
                 <role>Zweihander Notification Member</role>
                 <role>Developer</role>
             </roles>
-            <timezone>Africa/Johannesburg</timezone>
+            <timezone>Africa/Pretoria</timezone>
+        </developer>
+		<developer>
+            <id>16394713</id>
+            <name>George Mweshi</name>
+            <email>u16394713@tuks.co.za</email>
+            <roles>
+                <role>Zweihander Notification Member</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Pretoria</timezone>
         </developer>
     </developers>
 
