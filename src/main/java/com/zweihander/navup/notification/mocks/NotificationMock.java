@@ -12,18 +12,24 @@ public class NotificationMock implements Notification {
 
     @Override
     public SendNotificationResponse sendNotification(SendNotificationRequest req) throws NotificationNotSentException{
+        if(req == null)
+            throw new NotificationNotSentException();
+        else if(req.getType().equals("EMALL"))
+            sendEmail(new SendEmailRequest());
+        else
+            sendSMS(new SendSMSRequest());
 
-        return null;
+        return new SendNotificationResponse();
     }
 
     @Override
     public SendEmailResponse sendEmail(SendEmailRequest req) throws NotificationNotSentException{
 
-        return null;
+        return new SendEmailResponse();
     }
 
     @Override
     public SendSMSResponse sendSMS(SendSMSRequest req) throws NotificationNotSentException{
-        return null;
+        return new SendSMSResponse();
     }
 }
