@@ -80,6 +80,13 @@
             <artifactId>google-api-services-gmail</artifactId>
             <version>v1-rev47-1.22.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>7.8.0</version>
+        </dependency>
+
         <!-- JavaEE Dependencies -->
         <dependency>
             <groupId>javax.inject</groupId>
@@ -151,6 +158,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
