@@ -59,6 +59,16 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
+       <developer>
+            <id>29461775</id>
+            <name>Maria Qumayo</name>
+            <email>mariaqumayo38@gmail.com</email>
+            <roles>
+                <role>Zweihander Notification Member</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Johannesburg</timezone>
+        </developer>
     </developers>
 
     <dependencies>
