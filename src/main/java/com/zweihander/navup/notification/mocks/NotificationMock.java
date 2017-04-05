@@ -15,7 +15,7 @@ public class NotificationMock implements Notification {
         if(req == null)
             throw new NotificationNotSentException();
         else if(req.getType().equals("EMALL"))
-            sendEmail(new SendEmailRequest());
+            sendEmail(new SendEmailRequest("a@a.com", "test", "Test Message", false, false));
         else
             sendSMS(new SendSMSRequest());
 
