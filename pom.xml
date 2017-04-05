@@ -7,18 +7,6 @@
     <prerequisites>
         <maven>3.3.9</maven>
     </prerequisites>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -70,7 +58,8 @@
             </roles>
             <timezone>Africa/Pretoria</timezone>
         </developer>
-       <developer>
+
+        <developer>
             <id>29461775</id>
             <name>Maria Qumayo</name>
             <email>mariaqumayo38@gmail.com</email>
@@ -80,12 +69,13 @@
             </roles>
             <timezone>Africa/Pretoria</timezone>
         </developer>
-		<developer>
+
+        <developer>
             <id>16394713</id>
             <name>George Mweshi</name>
             <email>u16394713@tuks.co.za</email>
             <roles>
-                <role>Zweihander Notification Member</role>
+                <role>Zweihander Notification Group Member</role>
                 <role>Developer</role>
             </roles>
             <timezone>Africa/Pretoria</timezone>
@@ -93,7 +83,6 @@
     </developers>
 
     <dependencies>
-
         <dependency>
             <groupId>com.google.api-client</groupId>
             <artifactId>google-api-client</artifactId>
@@ -111,6 +100,13 @@
             <artifactId>google-api-services-gmail</artifactId>
             <version>v1-rev47-1.22.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>7.8.0</version>
+        </dependency>
+
         <!-- JavaEE Dependencies -->
         <dependency>
             <groupId>javax.inject</groupId>
@@ -122,25 +118,6 @@
             <artifactId>validation-api</artifactId>
             <version>1.1.0.Final</version>
         </dependency>
-        <!--Activation-->
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <!--Annotations-->
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-        <!-- javax mail-->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.5.0-b01</version>
-        </dependency>
 
         <!-- Lombok -->
         <dependency>
@@ -151,6 +128,23 @@
         </dependency>
 
         <!-- Spring Dependencies -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -160,12 +154,35 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+	
+	    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+            <version>1.7.1.RELEASE</version>
+        </dependency>
 
         <!-- Testing Framework Dependencies -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.subethamail</groupId>
+            <artifactId>subethasmtp</artifactId>
+            <version>3.1.7</version>
             <scope>test</scope>
         </dependency>
 
@@ -182,25 +199,38 @@
             <version>1.9.5</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
             <version>1.6.6</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-core</artifactId>
             <version>1.6.6</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
             <version>1.6.6</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
