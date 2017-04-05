@@ -3,23 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.zweihander.navup.notification;
+package com.zweihander.navup.notification.domain;
 
 /**
  *
  * @author Maria.Qumayo
  * @author George
  */
-public class UserMock {
+
+
+public class User {
    private String UserName;
    private String Password;
    private String email;
+   private String phone;
    private int UserID;
            
-  public UserMock(String UserName, String Password, String em,int UserID){
+  public User(String UserName, String Password, String em,String ph, int UserID){
       this.UserName = UserName;
       this.Password = Password;
       this.email=em;
+      this.setPhone(ph);
       this.UserID = UserID;		
    }
 
@@ -45,4 +49,11 @@ public class UserMock {
     }
 
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }
