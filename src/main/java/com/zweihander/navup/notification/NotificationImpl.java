@@ -30,9 +30,6 @@ public class NotificationImpl implements Notification {
     @Inject
     private SpringTemplateEngine templateEngine;
 
-    @Inject
-    private NotificationProperties config;
-
     @Override
     public SendNotificationResponse sendNotification(SendNotificationRequest req) throws NotificationNotSentException {
 
