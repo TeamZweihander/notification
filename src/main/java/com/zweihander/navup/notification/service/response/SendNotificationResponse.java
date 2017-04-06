@@ -1,4 +1,4 @@
-package com.zweihander.navup.notification.response;
+package com.zweihander.navup.notification.service.response;
 
 import com.zweihander.navup.notification.Response;
 import lombok.Getter;

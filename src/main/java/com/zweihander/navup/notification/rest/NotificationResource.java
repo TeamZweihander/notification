@@ -1,9 +1,12 @@
-package com.zweihander.navup.rest;
+package com.zweihander.navup.notification.rest;
 
-import com.zweihander.navup.notification.Notification;
-import com.zweihander.navup.notification.exception.*;
-import com.zweihander.navup.notification.request.*;
-import com.zweihander.navup.notification.response.SendNotificationResponse;
+import com.zweihander.navup.notification.service.Notification;
+import com.zweihander.navup.notification.service.exception.*;
+import com.zweihander.navup.notification.service.request.*;
+import com.zweihander.navup.notification.service.exception.EmailNotSentException;
+import com.zweihander.navup.notification.service.exception.NotificationNotSentException;
+import com.zweihander.navup.notification.service.response.SendNotificationResponse;
+import com.zweihander.navup.notification.service.request.SendNotificationRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

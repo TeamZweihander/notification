@@ -1,9 +1,15 @@
-package com.zweihander.navup.notification;
+package com.zweihander.navup.notification.service;
 
-import com.zweihander.navup.notification.exception.EmailNotSentException;
-import com.zweihander.navup.notification.exception.NotificationNotSentException;
-import com.zweihander.navup.notification.request.*;
-import com.zweihander.navup.notification.response.*;
+import com.zweihander.navup.notification.service.exception.EmailNotSentException;
+import com.zweihander.navup.notification.service.exception.NotificationNotSentException;
+import com.zweihander.navup.notification.service.request.*;
+import com.zweihander.navup.notification.service.response.*;
+import com.zweihander.navup.notification.service.request.SendEmailRequest;
+import com.zweihander.navup.notification.service.request.SendNotificationRequest;
+import com.zweihander.navup.notification.service.request.SendSMSRequest;
+import com.zweihander.navup.notification.service.response.SendEmailResponse;
+import com.zweihander.navup.notification.service.response.SendNotificationResponse;
+import com.zweihander.navup.notification.service.response.SendSMSResponse;
 
 /**
  *

@@ -1,4 +1,4 @@
-package com.zweihander.navup.notification.request;
+package com.zweihander.navup.notification.service.request;
 
 import com.zweihander.navup.notification.Request;
 import lombok.AllArgsConstructor;
