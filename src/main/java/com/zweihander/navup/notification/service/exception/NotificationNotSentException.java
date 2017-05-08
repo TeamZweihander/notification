@@ -1,4 +1,4 @@
-package com.zweihander.navup.notification.exception;
+package com.zweihander.navup.notification.service.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

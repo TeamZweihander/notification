@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: NavUP Notification
+
+  profiles:
+    active: dev
