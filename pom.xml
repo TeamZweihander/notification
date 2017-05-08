@@ -88,6 +88,7 @@
     </developers>
 
     <dependencies>
+    
         <dependency>
             <groupId>com.google.api-client</groupId>
             <artifactId>google-api-client</artifactId>
@@ -232,6 +233,12 @@
             <version>1.6.6</version>
             <scope>test</scope>
         </dependency>
+        
+       <dependency>
+        <groupId>com.rabbitmq</groupId>
+        <artifactId>amqp-client</artifactId>
+        <version>3.0.4</version>
+	</dependency>
 
     </dependencies>
     
