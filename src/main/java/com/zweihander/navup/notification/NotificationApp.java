@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * Created by Nsovo on 2017/03/29.
@@ -12,6 +13,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 @EnableConfigurationProperties({ NotificationConfig.class })
 @Slf4j
+@EnableEurekaClient
 public class NotificationApp {
 
     private static SpringApplication application = new SpringApplication(NotificationApp.class);

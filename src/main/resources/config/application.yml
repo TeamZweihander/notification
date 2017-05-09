@@ -1,6 +1,16 @@
+server:
+  port: 9009
+
 spring:
   application:
     name: NavUP Notification
 
   profiles:
     active: dev
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+  instance:
+    preferIpAddress: true
