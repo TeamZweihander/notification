@@ -6,6 +6,7 @@ import com.zweihander.navup.notification.domain.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -13,6 +14,7 @@ import lombok.Getter;
  */
 @AllArgsConstructor
 @Getter
+@Setter
 public class SendNotificationRequest extends Request {
     private static final long serialVersionUID = -2461211078979515088L;
     private NotificationType type;
