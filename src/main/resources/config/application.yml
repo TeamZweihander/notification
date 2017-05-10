@@ -3,4 +3,12 @@ spring:
     name: NavUP Notification
 
   profiles:
-    active: dev
+    active: prod
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761
+
+server:
+  port: 8090

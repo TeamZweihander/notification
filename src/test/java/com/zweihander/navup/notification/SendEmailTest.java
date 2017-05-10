@@ -1,7 +1,7 @@
 package com.zweihander.navup.notification;
 
-import com.zweihander.navup.notification.service.exception.EmailNotSentException;
-import com.zweihander.navup.notification.service.exception.NotificationNotSentException;
+import com.zweihander.navup.notification.domain.User;
+import com.zweihander.navup.notification.service.exception.*;
 import com.zweihander.navup.notification.service.request.SendEmailRequest;
 import com.zweihander.navup.notification.service.Notification;
 import org.junit.After;
@@ -10,7 +10,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.mail.javamail.JavaMailSender;
+//<<<<<<< HEAD
+import org.springframework.mail.javamail.JavaMailSender;
+//=======
+import org.springframework.beans.factory.annotation.Value;
+//>>>>>>> e084488bd8f796810996c773a1b7b732a35ec4c3
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.subethamail.wiser.Wiser;
@@ -32,13 +36,16 @@ public class SendEmailTest {
 
     private Wiser wiser;
 
+    @Value("${spring.mail.port}")
+    private int port;
+
     @Autowired
     private Notification notification;
 
 
     @Before
     public void setup() {
-        wiser = new Wiser(25);
+        wiser = new Wiser(port);
         wiser.setHostname("localhost");
         wiser.start();
         MockitoAnnotations.initMocks(this);
@@ -51,10 +58,10 @@ public class SendEmailTest {
     }
 
     @Test
-    public void sendEmailTest() throws MessagingException, IOException, EmailNotSentException , NotificationNotSentException{
+    public void sendEmailTest() throws MessagingException, IOException, EmailNotSentException {
 
 
-        notification.sendEmail(new SendEmailRequest("johndoe@example.com", "Unit Testing", "This is a test string", false, false));
+        notification.sendEmail(new SendEmailRequest(new User(1,"John", "u12163262@up.ac.za", "0736397435"), "Unit Testing", "This is a test string", false, false));
 
         assertEquals("No mail messages found", 1, wiser.getMessages().size());
 

@@ -1,10 +1,12 @@
 package com.zweihander.navup.notification.rest;
 
+import com.zweihander.navup.notification.domain.NotificationType;
+import com.zweihander.navup.notification.domain.User;
 import com.zweihander.navup.notification.service.Notification;
 import com.zweihander.navup.notification.service.exception.*;
 import com.zweihander.navup.notification.service.request.*;
 import com.zweihander.navup.notification.service.exception.EmailNotSentException;
-import com.zweihander.navup.notification.service.exception.NotificationNotSentException;
+import com.zweihander.navup.notification.service.response.SendEmailResponse;
 import com.zweihander.navup.notification.service.response.SendNotificationResponse;
 import com.zweihander.navup.notification.service.request.SendNotificationRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -31,10 +33,14 @@ public class NotificationResource {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> sendNotification(@RequestBody SendNotificationRequest req) throws NotificationNotSentException, EmailNotSentException {
+    public ResponseEntity<?> sendEmail(@RequestBody SendEmailRequest req)  {
         log.debug("REST request to send Notifiction : {}", req);
-        SendNotificationResponse res = notification.sendNotification(req);
-        return ResponseEntity.ok(res);
+        SendEmailResponse res;
+        try {
+            res = notification.sendEmail(req);
+        }catch(EmailNotSentException ex){
+            return ResponseEntity.badRequest().body(ex);
+        }
+        return ResponseEntity.status(200).build();
     }
-    
 }
