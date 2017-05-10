@@ -9,6 +9,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 /**
  * Created by Nsovo on 2017/03/29.
  */
+
+
 @SpringBootApplication
 @EnableConfigurationProperties({ NotificationConfig.class })
 @Slf4j

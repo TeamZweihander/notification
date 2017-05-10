@@ -1,5 +1,9 @@
 package com.zweihander.navup.notification.service;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+import com.zweihander.navup.notification.domain.User;
 import com.zweihander.navup.notification.service.exception.*;
 import com.zweihander.navup.notification.service.request.*;
 import com.zweihander.navup.notification.service.response.*;
@@ -13,6 +17,10 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.internet.MimeMessage;
+
+import static com.zweihander.navup.notification.config.NotificationConfig.ACCOUNT_SID;
+import static com.zweihander.navup.notification.config.NotificationConfig.AUTH_TOKEN;
+import static com.zweihander.navup.notification.config.NotificationConfig.TWILIO_NUMBER;
 
 /**
  * Created by Nsovo on 2017/03/28.
@@ -29,6 +37,33 @@ public class NotificationImpl implements Notification {
 
     @Autowired
     private SpringTemplateEngine templateEngine;
+
+    @Override
+    public SendNotificationResponse sendNotification(SendNotificationRequest req) throws InvalidRequestException, EmailNotSentException, SMSNotSentException{
+
+        try{
+
+            switch(req.getType()) {
+                case "EMAIL":
+                    sendEmail(new SendEmailRequest(new User(req.getUsername(), req.getUsername(), "+27736397435"), "NavUP: " + req.getSubject(), req.getMessage(), false, false));
+                    break;
+                case "SMS":
+                    sendSMS(new SendSMSRequest(new User(req.getUsername(), req.getUsername(), "+27736397435"), "NavUP: " + req.getSubject() + "\r\n" + req.getMessage()));
+                    break;
+                default:
+                    throw new InvalidRequestException();
+            }
+
+        }catch(EmailNotSentException ex){
+            throw new EmailNotSentException();
+        }catch(SMSNotSentException ex){
+            throw new SMSNotSentException();
+        }catch(Exception ex){
+            throw new InvalidRequestException();
+        }
+
+        return new SendNotificationResponse();
+    }
 
     @Override
     public SendEmailResponse sendEmail(SendEmailRequest req) throws EmailNotSentException{
@@ -53,9 +88,20 @@ public class NotificationImpl implements Notification {
 
     @Override
     public SendSMSResponse sendSMS(SendSMSRequest req) throws SMSNotSentException{
-        return null;
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        try {
+            Message.creator(new PhoneNumber(req.getUser().getPhone()), //to
+                            new PhoneNumber(TWILIO_NUMBER),  // from
+                            req.getMessage())
+                    .create();
+
+            log.debug("Sent email to '{}'", req.getUser().getPhone());
+        }
+        catch(Exception e){
+            throw new SMSNotSentException();
+        }
+
+        return new SendSMSResponse();
     }
-
-
-
 }
