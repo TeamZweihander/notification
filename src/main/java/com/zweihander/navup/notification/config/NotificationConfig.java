@@ -12,8 +12,8 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 @ConfigurationProperties(prefix = "notification", ignoreUnknownFields = false)
 public class NotificationConfig {
 
-    public static final String ACCOUNT_SID = "AC945f948abd1a5742975ec6885fb41439";
-    public static final String AUTH_TOKEN = "de654ca0d8a79e21cf2052e7a6fb22cf";
+    public static final String ACCOUNT_SID = "AC153613b095b0d6854faedad5b5ffb38b";
+    public static final String AUTH_TOKEN = "a343d704f896f29edaff2775ca4c9cd6";
     public static final String TWILIO_NUMBER = "+12564856376 ";
 
     @Bean

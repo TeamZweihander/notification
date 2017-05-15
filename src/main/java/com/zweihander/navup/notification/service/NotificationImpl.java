@@ -89,14 +89,14 @@ public class NotificationImpl implements Notification {
     @Override
     public SendSMSResponse sendSMS(SendSMSRequest req) throws SMSNotSentException{
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-
+        Message message;
         try {
-            Message.creator(new PhoneNumber(req.getUser().getPhone()), //to
+            message = Message.creator(new PhoneNumber(req.getUser().getPhone()), //to
                             new PhoneNumber(TWILIO_NUMBER),  // from
                             req.getMessage())
                     .create();
 
-            log.debug("Sent email to '{}'", req.getUser().getPhone());
+            log.debug("Sent email to '{}'", message.getSid());
         }
         catch(Exception e){
             throw new SMSNotSentException();
