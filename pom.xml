@@ -110,7 +110,7 @@
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
-            <version>(7.0,7.9)</version>
+            <version>7.8.0</version>
         </dependency>
 
         <!-- JavaEE Dependencies -->
@@ -143,11 +143,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 	
@@ -171,12 +166,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-netflix-eureka-client</artifactId>
             <version>1.2.6.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.amqp</groupId>
-            <artifactId>spring-rabbit</artifactId>
-            <version>1.7.1.RELEASE</version>
         </dependency>
 
         <!-- Testing Framework Dependencies -->
