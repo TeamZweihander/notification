@@ -4,6 +4,7 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import com.zweihander.navup.notification.domain.User;
+import com.zweihander.navup.notification.domain.UserRequest;
 import com.zweihander.navup.notification.service.exception.*;
 import com.zweihander.navup.notification.service.request.*;
 import com.zweihander.navup.notification.service.response.*;
@@ -14,6 +15,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.internet.MimeMessage;
@@ -38,10 +40,15 @@ public class NotificationImpl implements Notification {
     @Autowired
     private SpringTemplateEngine templateEngine;
 
+    @Autowired
+    private RestTemplate rest;
+
     @Override
     public SendNotificationResponse sendNotification(SendNotificationRequest req) throws InvalidRequestException, EmailNotSentException, SMSNotSentException{
 
         try{
+
+            //User user = rest.getForObject("", User.class, new UserRequest(req.getUsername()));
 
             switch(req.getType()) {
                 case "EMAIL":
@@ -88,7 +95,7 @@ public class NotificationImpl implements Notification {
 
     @Override
     public SendSMSResponse sendSMS(SendSMSRequest req) throws SMSNotSentException{
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
         Message message;
         try {
             message = Message.creator(new PhoneNumber(req.getUser().getPhone()), //to
