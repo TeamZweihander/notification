@@ -11,6 +11,11 @@ import com.zweihander.navup.notification.service.response.*;
  */
 public class NotificationMock implements Notification {
 
+    @Override
+   public SendNotificationResponse sendNotification(SendNotificationRequest req) throws InvalidRequestException, EmailNotSentException, SMSNotSentException{
+        return new SendNotificationResponse();
+    }
+
    @Override
     public SendEmailResponse sendEmail(SendEmailRequest req) throws EmailNotSentException{
 

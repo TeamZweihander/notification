@@ -57,7 +57,7 @@ public class SendEmailTest {
     public void sendEmailTest() throws MessagingException, IOException, EmailNotSentException {
 
 
-        notification.sendEmail(new SendEmailRequest(new User(1,"John", "u12163262@up.ac.za", "0736397435"), "Unit Testing", "This is a test string", false, false));
+        notification.sendEmail(new SendEmailRequest(new User("JohnDoe1", "u12163262@up.ac.za", "0736397435"), "Unit Testing", "This is a test string", false, false));
 
         assertEquals("No mail messages found", 1, wiser.getMessages().size());
 

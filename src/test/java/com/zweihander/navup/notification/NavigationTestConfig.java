@@ -4,7 +4,6 @@ import com.zweihander.navup.notification.config.NotificationConfig;
 import com.zweihander.navup.notification.service.Notification;
 import com.zweihander.navup.notification.service.NotificationImpl;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration;
 import org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -17,7 +16,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 @Import({
         MailSenderAutoConfiguration.class,
-        PropertyPlaceholderAutoConfiguration.class,
         ThymeleafAutoConfiguration.class})
 @EnableConfigurationProperties({ NotificationConfig.class })
 public class NavigationTestConfig {
